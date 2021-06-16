@@ -46,7 +46,7 @@ void setup() {
   irrecv.enableIRIn();
   // Set up global variables
   state = 0;
-  currentColour = 1;
+  currentColour = 0;
 }
 
 void loop () {
@@ -82,6 +82,26 @@ void loop () {
       state = 5;
       pushUpdate = true;
     }
+    else if (results.value == 0xFF5AA5) {
+      Serial.println("6");
+      state = 6;
+      pushUpdate = true;
+    }
+    else if (results.value == 0xFF42BD) {
+      Serial.println("7");
+      state = 7;
+      pushUpdate = true;
+    }
+    else if (results.value == 0xFF4AB5) {
+      Serial.println("8");
+      state = 8;
+      pushUpdate = true;
+    }
+    else if (results.value == 0xFF52AD) {
+      Serial.println("9");
+      state = 9;
+      pushUpdate = true;
+    }
     else if (results.value == 0xFFE01F) {
       Serial.println("Down Colour");
       if (currentColour - 1 < 0) {
@@ -105,7 +125,7 @@ void loop () {
     else if (results.value == 0xFFFFFF) {
       // If buttons are held down, it sends this signal
     }
-    //Serial.println(results.value, HEX);
+    Serial.println(results.value, HEX);
     irrecv.resume();
   }
   // Perform function
@@ -210,8 +230,55 @@ void loop () {
       }
       FastLED.show();
       break;
+    case 6:
+      //Serial.println("State 7: Ben");
+      if (pushUpdate) {
+        ben();
+        pushUpdate = false;
+      }
+      break;
+    case 7:
+      //Serial.println("State 8: Exclamation");
+      if (pushUpdate) {
+        exclamation();
+        pushUpdate = false;
+      }
+      break;
+    case 8:
+      //Serial.println("State 9: ???");
+      if (pushUpdate) {
+        // TODO
+        pushUpdate = false;
+      }
+      break;
+    case 9:
+      //Serial.println("State 10: ???");
+      if (pushUpdate) {
+        // TODO
+        pushUpdate = false;
+      }
+      break;
     default:
       //Serial.println("Invalid State");
+      break;
+  }
+}
+
+void setLED(int row, int index) {
+  switch (row) {
+    case 1:
+      leds_1[index] = colours[currentColour];
+      break;
+    case 2:
+      leds_2[index] = colours[currentColour];
+      break;
+    case 3:
+      leds_3[index] = colours[currentColour];
+      break;
+    case 4:
+      leds_4[index] = colours[currentColour];
+      break;
+    default:
       break;
   }
 }
@@ -377,5 +444,66 @@ void dead ()  {
   leds_4[21] = colours[currentColour];
   leds_4[10] = colours[currentColour];
   leds_4[7] = colours[currentColour];
+  FastLED.show();
+}
+
+void ben () {
+  Serial.println("Ben");
+  wipe();
+  // For my loving friend, Ben 
+  // Row 1
+  setLED(1, 8);
+  setLED(1, 10);
+  setLED(1, 14);
+  setLED(1, 18);
+  setLED(1, 21);
+  setLED(1, 22);
+  setLED(1, 23);
+  setLED(1, 24);
+  // Row 2
+  setLED(2, 5);
+  setLED(2, 7);
+  setLED(2, 9);
+  setLED(2, 12);
+  setLED(2, 16);
+  setLED(2, 23);
+  // Row 3
+  setLED(3, 6);
+  setLED(3, 8);
+  setLED(3, 10);
+  setLED(3, 13);
+  setLED(3, 17);
+  setLED(3, 24);
+  // Row 4
+  setLED(4, 5);
+  setLED(4, 7);
+  setLED(4, 9);
+  setLED(4, 13);
+  setLED(4, 14);
+  setLED(4, 15);
+  setLED(4, 19);
+  setLED(4, 20);
+  setLED(4, 21);
+  setLED(4, 22);
+  FastLED.show();
+}
+
+void exclamation () {
+  wipe();
+  // Row 1
+  leds_1[21] = colours[currentColour];
+  leds_1[22] = colours[currentColour];
+  leds_1[11] = colours[currentColour];
+  leds_1[10] = colours[currentColour];
+  // Row 2
+  leds_2[19] = colours[currentColour];
+  leds_2[20] = colours[currentColour];
+  leds_2[9] = colours[currentColour];
+  leds_2[8] = colours[currentColour];
+  // Row 4
+  leds_4[19] = colours[currentColour];
+  leds_4[20] = colours[currentColour];
+  leds_4[9] = colours[currentColour];
+  leds_4[8] = colours[currentColour];
   FastLED.show();
 }
