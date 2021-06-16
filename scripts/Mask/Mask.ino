@@ -19,13 +19,12 @@ CRGB leds_3[NUM_LEDS];
 CRGB leds_4[NUM_LEDS];
 CRGB leds_5[3];
 
-boolean isOn;
-CRGB white = CRGB(128, 128, 128);
-CRGB green = CRGB(0, 128, 0);
-CRGB blue = CRGB(0, 0, 128);
-CRGB red = CRGB(128, 0, 0);
-CRGB yellow = CRGB(128, 128, 0);
-CRGB gray = CRGB(32, 32, 32);
+CRGB white = CRGB(16, 16, 16);
+CRGB green = CRGB(0, 16, 0);
+CRGB blue = CRGB(0, 0, 16);
+CRGB red = CRGB(16, 0, 0);
+CRGB yellow = CRGB(16, 16, 0);
+CRGB gray = CRGB(16, 16, 16);
 
 void setup() {
   FastLED.addLeds<WS2812, LED_PIN_1, GRB>(leds_1, NUM_LEDS);
@@ -37,50 +36,35 @@ void setup() {
   // Sets up the IR Reciever
   Serial.begin(9600);
   irrecv.enableIRIn();
-  isOn = false;
   neutral();
 }
 
-/*
 void loop() {
   if (irrecv.decode(&results)) { // have we received an IR signal?
-    if (isOn) {
-      switch(results.value) {
-        case 0xFFA25D: 
-          turnOff();
-          break;
-        case 0xFF6897:
-          neutral();
+    switch(results.value) {
+      case 0xFF6897:
+        neutral();
         break;
-        case 0xFF30CF:
-          happy();
-          break;
-        case 0xFF18E7:
-          sad();
-          break;
-        case 0xFF7A85:
-          angry();
-          break;
-        case 0xFF10EF:
-          dead();
-          break;
-        default:
-          break;
-      }
-    }
-    else {
-      // Off, only allow turnOn()
-      switch(results.value) {
-        case 0xFFA25D: 
-          turnOn();
-          break;
-      }
+      case 0xFF30CF:
+        happy();
+        break;
+      case 0xFF18E7:
+        sad();
+        break;
+      case 0xFF7A85:
+        angry();
+        break;
+      case 0xFF10EF:
+        dead();
+        break;
+      default:
+        break;
     }
     irrecv.resume();
   }
 }
-*/
 
+/*
 void loop () {
   neutral();
   delay(2500);
@@ -93,6 +77,7 @@ void loop () {
   dead();
   delay(2500);
 }
+*/
 
 void wipe () {
   for (int i = 0; i < NUM_LEDS; i++) {
@@ -102,19 +87,6 @@ void wipe () {
     leds_4[i] = CRGB(0, 0, 0);
   }
   FastLED.show();
-}
-
-void turnOn ()  {
-  Serial.println("Turn on");
-  wipe();
-  isOn = true;
-  neutral();
-}
-
-void turnOff ()  {
-  Serial.println("Turn off");
-  wipe();
-  isOn = false;
 }
 
 // Middle indexes:

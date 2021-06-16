@@ -34,7 +34,7 @@ void setup() {
   Serial.begin(9600);
   irrecv.enableIRIn();
   isOn = false;
-  state = 1;
+  state = 0;
 }
 
 void loop () {
