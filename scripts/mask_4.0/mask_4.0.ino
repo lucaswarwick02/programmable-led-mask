@@ -299,151 +299,147 @@ void wipe () {
 // leds_1 = 15
 // leds_1 = 14
 
-void neutral_0 ()  {
+void neutral_0 () {
   wipe();
   // Row 1
-  leds_1[21] = colours[currentColour];
-  leds_1[22] = colours[currentColour];
-  leds_1[11] = colours[currentColour];
-  leds_1[10] = colours[currentColour];
+  setLED(1, 10);
+  setLED(1, 11);
+  setLED(1, 21);
+  setLED(1, 22);
   // Row 2
-  leds_2[18] = colours[currentColour];
-  leds_2[21] = colours[currentColour];
-  leds_2[10] = colours[currentColour];
-  leds_2[7] = colours[currentColour];
+  setLED(2, 7);
+  setLED(2, 10);
+  setLED(2, 18);
+  setLED(2, 21);
   // Row 3
-  leds_3[19] = colours[currentColour];
-  leds_3[22] = colours[currentColour];
-  leds_3[11] = colours[currentColour];
-  leds_3[8] = colours[currentColour];
+  setLED(3, 8);
+  setLED(3, 11);
+  setLED(3, 19);
+  setLED(3, 22);
   // Row 4
-  leds_4[19] = colours[currentColour];
-  leds_4[20] = colours[currentColour];
-  leds_4[9] = colours[currentColour];
-  leds_4[8] = colours[currentColour];
+  setLED(4, 8);
+  setLED(4, 9);
+  setLED(4, 19);
+  setLED(4, 20);
   FastLED.show();
 }
 
 void neutral_1 () {
   wipe();
   // Row 2
-  leds_2[18] = colours[currentColour];
-  leds_2[19] = colours[currentColour];
-  leds_2[20] = colours[currentColour];
-  leds_2[21] = colours[currentColour];
-  leds_2[10] = colours[currentColour];
-  leds_2[9] = colours[currentColour];
-  leds_2[8] = colours[currentColour];
-  leds_2[7] = colours[currentColour];
+  setLED(2, 7);
+  setLED(2, 8);
+  setLED(2, 9);
+  setLED(2, 10);
+  setLED(2, 18);
+  setLED(2, 19);
+  setLED(2, 20);
+  setLED(2, 21);
   // Row 3
-  leds_3[19] = colours[currentColour];
-  leds_3[20] = colours[currentColour];
-  leds_3[21] = colours[currentColour];
-  leds_3[22] = colours[currentColour];
-  leds_3[11] = colours[currentColour];
-  leds_3[10] = colours[currentColour];
-  leds_3[9] = colours[currentColour];
-  leds_3[8] = colours[currentColour];
+  setLED(3, 8);
+  setLED(3, 9);
+  setLED(3, 10);
+  setLED(3, 11);
+  setLED(3, 19);
+  setLED(3, 20);
+  setLED(3, 21);
+  setLED(3, 22);
   FastLED.show();
 }
 
 void neutral_2 () {
   wipe();
   // Row 3
-  leds_3[19] = colours[currentColour];
-  leds_3[20] = colours[currentColour];
-  leds_3[21] = colours[currentColour];
-  leds_3[22] = colours[currentColour];
-  leds_3[11] = colours[currentColour];
-  leds_3[10] = colours[currentColour];
-  leds_3[9] = colours[currentColour];
-  leds_3[8] = colours[currentColour];
+  setLED(3, 8);
+  setLED(3, 9);
+  setLED(3, 10);
+  setLED(3, 11);
+  setLED(3, 19);
+  setLED(3, 20);
+  setLED(3, 21);
+  setLED(3, 22);
   FastLED.show();
 }
 
-void happy ()  {
-  Serial.println("Happy");
+void happy () {
   wipe();
   // Row 1
-  leds_1[21] = colours[currentColour];
-  leds_1[11] = colours[currentColour];
+  setLED(1, 11);
+  setLED(1, 21);
   // Row 2
-  leds_2[20] = colours[currentColour];
-  leds_2[18] = colours[currentColour];
-  leds_2[10] = colours[currentColour];
-  leds_2[8] = colours[currentColour];
+  setLED(2, 8);
+  setLED(2, 10);
+  setLED(2, 18);
+  setLED(2, 20);
   // Row 3
-  leds_3[22] = colours[currentColour];
-  leds_3[18] = colours[currentColour];
-  leds_3[12] = colours[currentColour];
-  leds_3[8] = colours[currentColour];
+  setLED(3, 8);
+  setLED(3, 12);
+  setLED(3, 18);
+  setLED(3, 22);
   // Row 4
-  leds_4[22] = colours[currentColour];
-  leds_4[16] = colours[currentColour];
-  leds_4[12] = colours[currentColour];
-  leds_4[6] = colours[currentColour];
+  setLED(4, 6);
+  setLED(4, 12);
+  setLED(4, 16);
+  setLED(4, 22);
   FastLED.show();
 }
 
-void sad ()  {
-  Serial.println("Sad");
+void sad () {
   wipe();
   // Row 1
-  leds_1[20] = colours[currentColour];
-  leds_1[12] = colours[currentColour];
+  setLED(1, 12);
+  setLED(1, 20);
   // Row 2
-  leds_2[19] = colours[currentColour];
-  leds_2[9] = colours[currentColour];
+  setLED(2, 9);
+  setLED(2, 19);
   // Row 3
-  leds_3[21] = colours[currentColour];
-  leds_3[9] = colours[currentColour];
+  setLED(3, 9);
+  setLED(3, 21);
   // Row 4
-  leds_4[21] = colours[currentColour];
-  leds_4[7] = colours[currentColour];
+  setLED(4, 7);
+  setLED(4, 21);
   FastLED.show();
 }
 
-void angry ()  {
-  Serial.println("Angry");
+void angry () {
   wipe();
   // Row 1
-  leds_1[22] = colours[currentColour];
-  leds_1[10] = colours[currentColour];
+  setLED(1, 9);
+  setLED(1, 23);
   // Row 2
-  leds_2[19] = colours[currentColour];
-  leds_2[9] = colours[currentColour];
+  setLED(2, 8);
+  setLED(2, 20);
   // Row 3
-  leds_3[19] = colours[currentColour];
-  leds_3[11] = colours[currentColour];
+  setLED(3, 10);
+  setLED(3, 20);
   // Row 4
-  leds_4[17] = colours[currentColour];
-  leds_4[11] = colours[currentColour];
+  setLED(4, 10);
+  setLED(4, 18);
   FastLED.show();
 }
 
-void dead ()  {
-  Serial.println("Dead");
+void dead () {
   wipe();
   // Row 1
-  leds_1[20] = colours[currentColour];
-  leds_1[23] = colours[currentColour];
-  leds_1[12] = colours[currentColour];
-  leds_1[9] = colours[currentColour];
+  setLED(1, 9);
+  setLED(1, 12);
+  setLED(1, 20);
+  setLED(1, 23);
   // Row 2
-  leds_2[19] = colours[currentColour];
-  leds_2[20] = colours[currentColour];
-  leds_2[9] = colours[currentColour];
-  leds_2[8] = colours[currentColour];
+  setLED(2, 8);
+  setLED(2, 9);
+  setLED(2, 19);
+  setLED(2, 20);
   // Row 3
-  leds_3[20] = colours[currentColour];
-  leds_3[21] = colours[currentColour];
-  leds_3[10] = colours[currentColour];
-  leds_3[9] = colours[currentColour];
+  setLED(3, 9);
+  setLED(3, 10);
+  setLED(3, 20);
+  setLED(3, 21);
   // Row 4
-  leds_4[18] = colours[currentColour];
-  leds_4[21] = colours[currentColour];
-  leds_4[10] = colours[currentColour];
-  leds_4[7] = colours[currentColour];
+  setLED(4, 7);
+  setLED(4, 10);
+  setLED(4, 18);
+  setLED(4, 21);
   FastLED.show();
 }
 
@@ -491,19 +487,19 @@ void ben () {
 void exclamation () {
   wipe();
   // Row 1
-  leds_1[21] = colours[currentColour];
-  leds_1[22] = colours[currentColour];
-  leds_1[11] = colours[currentColour];
-  leds_1[10] = colours[currentColour];
+  setLED(1, 10);
+  setLED(1, 11);
+  setLED(1, 21);
+  setLED(1, 22);
   // Row 2
-  leds_2[19] = colours[currentColour];
-  leds_2[20] = colours[currentColour];
-  leds_2[9] = colours[currentColour];
-  leds_2[8] = colours[currentColour];
+  setLED(2, 8);
+  setLED(2, 9);
+  setLED(2, 19);
+  setLED(2, 20);
   // Row 4
-  leds_4[19] = colours[currentColour];
-  leds_4[20] = colours[currentColour];
-  leds_4[9] = colours[currentColour];
-  leds_4[8] = colours[currentColour];
+  setLED(4, 8);
+  setLED(4, 9);
+  setLED(4, 19);
+  setLED(4, 20);
   FastLED.show();
 }

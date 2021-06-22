@@ -1,6 +1,18 @@
-Test
-Test 2
-Test
-Test 2
-Test
-Test 2
+void generatedFunction () {
+  wipe();
+  // Row 1
+  setLED(1, 21);
+  setLED(1, 22);
+  setLED(1, 23);
+  setLED(1, 24);
+  // Row 2
+  setLED(2, 23);
+  // Row 3
+  setLED(3, 24);
+  // Row 4
+  setLED(4, 19);
+  setLED(4, 20);
+  setLED(4, 21);
+  setLED(4, 22);
+  FastLED.show();
+}

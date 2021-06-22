@@ -1,0 +1,16 @@
+void generatedFunction () {
+  wipe();
+  // Row 1
+  // Row 2
+  // Row 3
+  setLED(3, 8);
+  setLED(3, 9);
+  setLED(3, 10);
+  setLED(3, 11);
+  setLED(3, 19);
+  setLED(3, 20);
+  setLED(3, 21);
+  setLED(3, 22);
+  // Row 4
+  FastLED.show();
+}
